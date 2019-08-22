@@ -22,7 +22,7 @@ form {
     flex-flow: column nowrap;
 }
 
-section {
+#borker {
     border-bottom: 1px solid #000;
     border-top: 1px solid #000;
 }
@@ -36,4 +36,13 @@ p, label {
     display: flex;
     flex-flow: row wrap;
     flex: 1 0 200px;
+}
+
+.borker-error {
+    margin: 1em;
+    padding: 1em;
+    color: red;
+    border: 1px solid red;
+    display: flex;
+    flex-flow: column nowrap;
 }

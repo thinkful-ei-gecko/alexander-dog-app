@@ -22,40 +22,54 @@ function handleBorkRequest() {
  */
 function getBorkRepo(breed) {
   const accessHeader = 'q=Access-Control-Allow-Origin=*';
-
   fetch(`https://dog.ceo/api/breed/${breed}/images/random/${accessHeader}`)
     .then(response => response.json())
     .then(jsonData => {
-      // console.log(jsonData);
-      borkTemplate(jsonData);
+      borkStatusCheck(jsonData);
     })
-    .catch(error => {
-      // borkResponseErrorTemplate(jsonData)
-      console.log('Breed not found.')
+    .catch( error => {
+      // console.log(error);
     });
 }
 
-function borkResponseErrorTemplate() {
-  let errorMessage = jsonData.message;
-  let errorCode = jsonData.code;
+function borkStatusCheck(borkRepo) {
+  if (borkRepo.status === 'error') {
+    borkResponseErrorTemplate(borkRepo);
+  } else if (borkRepo.status === 'success') {
+    borkImageTemplate(borkRepo);
+  }
+}
+
+function borkResponseErrorTemplate(errorRepo) {
+  let errorMessage = errorRepo.message;
+  let errorCode = errorRepo.code;
   
-  $('#js-bork-results').html(
-    `<h3>BORKING BORK ERROR</h3>
-    <span class="error-message">Error Code: ${code}</span>
-    <p>${borkError}</p>
-    `);
+  let borkTemplate = `
+  <section class="borker-error">
+    <h3>BORKING BORK ERROR</h3>
+    <span class="error-message">Error Code: ${errorCode}</span>
+    <p>There's no such hecking breed of borker!</p>
+    </section>
+    `;
+  borkResults(borkTemplate);
+  
+  console.log(errorMessage);
 }
 
 /**
  * Called in getBorkRepo to build templates for each bork image.
  * @param {json} jsonData - Passed in fromgetBorkRepo
  */
-function borkTemplate(jsonData) {
+function borkImageTemplate(jsonData) {
   let borkImage = jsonData.message;
   // console.log(borkImage);
-  $('#js-bork-results').html(
-    `<img src="${borkImage}" class="bork-img">`
-  );
+  let borkTemplate = `<img src="${borkImage}" class="bork-img">`;
+  borkResults(borkTemplate);
+}
+
+//Display results in DOM.
+function borkResults(results) {
+  $('#js-bork-results').html(results);
 }
 
 function eventHandler() {
