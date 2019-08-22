@@ -31,3 +31,9 @@ p, label {
     border-bottom: 1px solid #000;
     padding: 1em;
 }
+
+.borker {
+    display: flex;
+    flex-flow: row wrap;
+    flex: 1 0 200px;
+}

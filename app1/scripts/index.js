@@ -10,12 +10,15 @@ function handleBorkRequest() {
     // console.log('borker-button firing');
     const borkAmount = $('#js-bork-amount-input').val();
     // console.log(borkAmount);
-    console.log(getBorkRepo(borkAmount));
+    getBorkRepo(borkAmount);
     console.log('borker-button complete!');
   });
 }
 
 function getBorkRepo(num = 3) {
+  if (num > 50) { num = 50; }
+  if (num < 1) { num = 1; }
+
   fetch(`https://dog.ceo/api/breeds/image/random/${num}q=Access-Control-Allow-Origin=*`)
     .then(response => response.json())
     .then(jsonData => {
