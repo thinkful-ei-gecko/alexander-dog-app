@@ -1,6 +1,8 @@
 # alexander-dog-app
 Week 2 Dog App Exercise,
+
 Alexander Fukui
+
 Thinkful
 
 ## Goals:
