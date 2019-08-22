@@ -24,3 +24,6 @@ Create an app that loads a single random image for a specific breed, based on a 
 
 Fixes:
 - Change bork amount input to bork breed input.
+- Overhauled most everything...
+- Extractor function that assesses data included.
+- Included css and new element for error handling.
