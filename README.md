@@ -3,7 +3,7 @@ Week 2 Dog App Exercise,
 
 Alexander Fukui
 
-Thinkful
+8/22/2019, for Thinkful
 
 ## Goals:
 ### 1.
