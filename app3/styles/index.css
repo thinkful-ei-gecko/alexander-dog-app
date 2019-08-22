@@ -1,0 +1,39 @@
+
+/*From recommendation from Quiz App feedback*/
+label {
+    display: block;
+}
+
+header, main, footer {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    border: 2px solid #000;
+    padding: 1em;
+}
+
+.borker-button {
+    height: 40px;
+    margin: 1em auto;
+}
+
+form {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+section {
+    border-bottom: 1px solid #000;
+    border-top: 1px solid #000;
+}
+
+p, label {
+    border-bottom: 1px solid #000;
+    padding: 1em;
+}
+
+.borker {
+    display: flex;
+    flex-flow: row wrap;
+    flex: 1 0 200px;
+}
